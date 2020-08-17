@@ -27,9 +27,20 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Explain what a token is used for.
+
+A token is used to readily tell the client that it issued the token. It can also read the token and make decisions for data transfer based on the client’s permission.
+
 2. What steps can you take in your web apps to keep your data secure?
+
+Use JSON Web Tokens as the authentication token. These tokens are cryptic test, which can be stored on the client-side using local storage or session storage.
+
 3. Describe how web servers work.
+
+They process incoming network request via HTTP protocols. It primary function is to store and deliver web pages to clients.
+
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+Create(POST), Read(GET), Update(PUT), Delete(DELETE)
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
@@ -44,13 +55,13 @@ You are expected to be able to answer questions in these areas. Your responses c
 - [x] Clone your OWN version of the repository (Not Lambda's by mistake!)
 - [x] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
-- [ ] Push commits: git push origin `<firstName-lastName>`
-- [ ] **RUN** npm install at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
-- [ ] **LOOK** at all the files you've been given for this project. One important file to note is server.js. This file contains an API that you are going to be interfacing with. Below is documentation on how to interact with the API.
-- [ ] **RUN** npm start to get your API up and running on http://localhost:5000. This is the URL you're going to need to use within your React app in order to make AJAX requests for data.
-- [ ] **LOOK** at your client directory and notice it's just a plain ol' React App that we've built using create-react-app.
+- [x] Push commits: git push origin `<firstName-lastName>`
+- [x] **RUN** npm install at the root to retrieve all the dependencies for the node server. You will not need to create any react apps here nor will you need to install any other dependencies. You should have all you need in this repo.
+- [x] **LOOK** at all the files you've been given for this project. One important file to note is server.js. This file contains an API that you are going to be interfacing with. Below is documentation on how to interact with the API.
+- [x] **RUN** npm start to get your API up and running on http://localhost:5000. This is the URL you're going to need to use within your React app in order to make AJAX requests for data.
+- [x] **LOOK** at your client directory and notice it's just a plain ol' React App that we've built using create-react-app.
       cd into client and run npm install to retrieve the client side dependencies.
-- [ ] **RUN** npm start to fire up your React application.
+- [x] **RUN** npm start to fire up your React application.
 
 ### Task 2: Project Requirements
 
@@ -60,16 +71,16 @@ Your finished project must include all of the following requirements:
 
 Build a login form to authenticate your users.
 
-- [ ] Construct an AXIOS request to retrieve a token from the server. You'll use this token to interact with the API
-- [ ] Save the token to localStorage
-- [ ] Build a `axiosWithAuth` module to create an instance of axios with the authentication header
-- [ ] Build a `PrivateRoute` component and use it to protect a route that renders the `BubblesPage` component
+- [x] Construct an AXIOS request to retrieve a token from the server. You'll use this token to interact with the API
+- [x] Save the token to localStorage
+- [x] Build a `axiosWithAuth` module to create an instance of axios with the authentication header
+- [x] Build a `PrivateRoute` component and use it to protect a route that renders the `BubblesPage` component
 
 #### Stage 2 - Consuming the API
 
-- [ ] When `BubblePages` renders, make a GET request to fetch the color data for your bubbles.
-- [ ] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make AJAX requests to the API to edit/delete data
-- [ ] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
+- [x] When `BubblePages` renders, make a GET request to fetch the color data for your bubbles.
+- [x] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make AJAX requests to the API to edit/delete data
+- [x] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
 
 #### API Documentation
 
@@ -97,6 +108,6 @@ After finishing your required elements, you can push your work further. These go
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request**
-- [ ] Add your team lead as a reviewer on the pull-request
-- [ ] Your team lead will count the project as complete after receiving your pull-request
+- [x] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo). **Please don't merge your own pull request**
+- [x] Add your team lead as a reviewer on the pull-request
+- [x] Your team lead will count the project as complete after receiving your pull-request
