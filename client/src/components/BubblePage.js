@@ -7,6 +7,7 @@ import ColorList from "./ColorList";
 
 const BubblePage = () => {
   const [colorList, setColorList] = useState([]);
+  const [dependency, setDependency] = useState(false);
   // fetch your colors data from the server when the component mounts
   // set that data to the colorList state property
 
@@ -15,13 +16,16 @@ const BubblePage = () => {
   const getColorList = () => {
     axiosWithAuth()
       .get("/api/colors")
-      .then((res) => setColorList(res.data))
+      .then((res) => {
+        setColorList(res.data);
+        setDependency(false);
+      })
       .catch((err) => console.log(err.response));
   };
 
   useEffect(() => {
     getColorList();
-  }, []);
+  }, [dependency]);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -31,7 +35,11 @@ const BubblePage = () => {
   return (
     <>
       <button onClick={handleLogout}>Logout</button>
-      <ColorList colors={colorList} updateColors={setColorList} />
+      <ColorList
+        colors={colorList}
+        updateColors={setColorList}
+        setDependency={setDependency}
+      />
       <Bubbles colors={colorList} />
     </>
   );
