@@ -10,6 +10,7 @@ const ColorList = ({colors, updateColors, setDependency}) => {
   console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
+  const [addColor, setAddColor] = useState(initialColor);
 
   const editColor = (color) => {
     setEditing(true);
@@ -53,6 +54,24 @@ const ColorList = ({colors, updateColors, setDependency}) => {
   const deleteColor = (color) => {
     // make a delete request to delete this color
     handleDeleteColor(color);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axiosWithAuth()
+      .post("/api/colors", addColor)
+      .then((res) => {
+        console.log(res.data);
+        setAddColor(initialColor);
+        setDependency(true);
+      })
+      .catch((err) => {
+        console.error(
+          "SR: UpdateMovieForm.js: submit failed: err ",
+          err.message
+        );
+      });
   };
 
   return (
@@ -112,6 +131,29 @@ const ColorList = ({colors, updateColors, setDependency}) => {
       )}
       <div className="spacer" />
       {/* stretch - build another form here to add a color */}
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="color"
+          placeholder="Color"
+          value={addColor.color}
+          onChange={(e) => setAddColor({...addColor, color: e.target.value})}
+        />
+        <input
+          type="text"
+          name="hexcode"
+          placeholder="Hex Code"
+          value={addColor.code.hex}
+          onChange={(e) =>
+            setAddColor({
+              ...addColor,
+              code: {hex: e.target.value},
+            })
+          }
+        />
+        <button>Add Color</button>
+      </form>
     </div>
   );
 };
